@@ -89,6 +89,49 @@ const data = [
   }
 ];
 
+
+//My code starts here
+
+function articleMaker(articleObject) {
+  // Elements that need to be created for this template
+  let artDiv = document.createElement('div');
+  let artTitle = document.createElement('h2');
+  let datePara = document.createElement('p');
+  let p1 = document.createElement('p');
+  let p2 = document.createElement('p');
+  let p3 = document.createElement('p');
+  let artSpan = document.createElement('span');
+  //Adding classLists and textContent
+  artDiv.classList.add('article');
+  artTitle.textContent = (`${articleObject.title}`);
+  datePara.classList.add('date');
+  datePara.textContent = (`${articleObject.date}`);
+  p1.textContent = (`${articleObject.firstParagraph}`);
+  p2.textContent = (`${articleObject.secondParagraph}`);
+  p3.textContent = (`${articleObject.thirdParagraph}`);
+  artSpan.classList.add('expandButton');
+  artSpan.classList.add('article-open')
+  artSpan.textContent = ('+');
+  // Event listener for span
+  artSpan.addEventListener('click', e => {
+    artDiv.classList.toggle('article-open')
+  })
+
+  artDiv.appendChild(artTitle)
+  artDiv.appendChild(datePara)
+  artDiv.appendChild(p1)
+  artDiv.appendChild(p2)
+  artDiv.appendChild(p3)
+  artDiv.appendChild(artSpan)
+
+  return artDiv;
+}
+
+data.forEach(content => {
+  let art = articleMaker(content)
+  document.body.appendChild(art)
+})
+
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
