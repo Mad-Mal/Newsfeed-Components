@@ -113,8 +113,9 @@ function articleMaker(articleObject) {
   artSpan.classList.add('article-open')
   artSpan.textContent = ('+');
   // Event listener for span
-  artSpan.addEventListener('click', e => {
+  artSpan.addEventListener('click', () => {
     artDiv.classList.toggle('article-open')
+    console.log('event listener is working!')
   })
 
   artDiv.appendChild(artTitle)
@@ -132,6 +133,7 @@ data.forEach(content => {
   document.body.appendChild(art)
 })
 
+console.log(articleMaker(data))
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
