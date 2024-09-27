@@ -9,6 +9,31 @@ let menuItems = [
   'Log Out'
 ];
 
+function menuMaker(array) {
+
+  let menuDiv = document.createElement('div')
+  let list = document.createElement('ul')
+
+  menuDiv.classList.add('menu')
+
+  for (let i = 0; i < array.length; i++) {
+    let itemList = document.createElement('li')
+    itemList.textContent = array[i]
+    list.appendChild(itemList)
+  }
+
+  menuDiv.appendChild(list)
+
+  let menuButton = document.querySelector('img.menu-button')
+  menuButton.addEventListener('click', event => {
+    menuDiv.classList.add('menu--open')
+  })
+  return menuDiv
+}
+
+let newMenu = menuMaker(menuItems)
+document.body.appendChild(newMenu)
+
 /* 
   Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
 
